@@ -3,8 +3,8 @@
 #### Main source:
 * [How to use Django with Uvicorn](https://docs.djangoproject.com/en/5.1/howto/deployment/asgi/uvicorn/)
 * [Working with Static and Media Files in Django](https://testdriven.io/blog/django-static-files/)
+* [Use Volumes to Manage Persistent Data With Docker Compose](https://kinsta.com/blog/docker-compose-volumes/)
 * [Uvicorn Deployment](https://www.uvicorn.org/deployment/)
-
 -----------------------
 
 ## Development mode
@@ -40,6 +40,32 @@ docker run -it --name django-deploy -p 8000:8000 --rm  django-deploy
 Create docker containers with docker compose:
 ```shell
 docker-compose up
+```
+
+Mount Volumes To Containers:
+```yaml
+version: '3.8'
+services:
+  web:
+    image: nginx
+    volumes:
+      - web_data:/var/www/html
+  web-test:
+    image: nginx
+    volumes:
+      - web_data:/var/www/html # Web and web test share the web_data volume
+  db:
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+volumes:
+  web_data:
+  db_data:
+    driver: local # Define the driver and options under the volume name
+    driver_opts:
+      type: none
+      device: /data/db_data
+      o: bind
 ```
 ---------------------------------
 ### Other helpful
@@ -77,4 +103,11 @@ git push -u origin main
 Clone from github
 ```shell
 git clone https://github.com/infoplazma/djangoDeployProject.git
+```
+
+There are two major commands that you can use to undo “git add” or remove added files in Git. In other words, 
+you can use two major commands to remove staged files from the staging area:
+```shell
+git reset
+git rm --cached
 ```

@@ -6,6 +6,33 @@
 * [Use Volumes to Manage Persistent Data With Docker Compose](https://kinsta.com/blog/docker-compose-volumes/)
 * [Uvicorn Deployment](https://www.uvicorn.org/deployment/)
 -----------------------
+* [Set SSL in nginx](https://www.youtube.com/watch?v=wWHSpEPG8ec)
+* [Creating a Self-Signed SSL Certificate](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)
+```shell
+mkdir /etc/nginx/ssl
+
+openssl req -newkey rsa:4096 \
+            -x509 \
+            -sha256 \
+            -days 3650 \
+            -nodes \
+            -out /etc/nginx/ssl/nginx.crt \
+            -keyout /etc/nginx/ssl/nginx.key          
+```
+Let’s breakdown the command and understand what each option means:
+
+- newkey rsa:4096 - Creates a new certificate request and 4096 bit RSA key. The default one is 2048 bits.
+- x509 - Creates a X.509 Certificate.
+- sha256 - Use 265-bit SHA (Secure Hash Algorithm).
+- days 3650 - The number of days to certify the certificate for. 3650 is ten years. You can use any positive integer.
+- nodes - Creates a key without a passphrase.
+- out nginx.crt - Specifies the filename to write the newly created certificate to. You can specify any file name.
+- keyout nginx.key - Specifies the filename to write the newly created private key to. You can specify any file name.
+
+Copy keys from container
+```shell
+docker cp nginx_service_con:/etc/nginx/ssl ./ssl
+```
 
 ## Development mode
 ### Run django project in Development Mode

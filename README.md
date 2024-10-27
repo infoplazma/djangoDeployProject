@@ -34,6 +34,10 @@ Copy keys from container
 docker cp nginx_service_con:/etc/nginx/ssl ./ssl
 ```
 
+* [Logging Nginx](https://www.youtube.com/watch?v=cLYq2CU0JTM&list=PLhgRAQ8BwWFa7ulOkX0qi5UfVizGD_-Rc&index=11)
+```shell
+
+```
 ## Development mode
 ### Run django project in Development Mode
 ```shell

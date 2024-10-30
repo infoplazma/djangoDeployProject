@@ -5,6 +5,7 @@
 * [Working with Static and Media Files in Django](https://testdriven.io/blog/django-static-files/)
 * [Use Volumes to Manage Persistent Data With Docker Compose](https://kinsta.com/blog/docker-compose-volumes/)
 * [Uvicorn Deployment](https://www.uvicorn.org/deployment/)
+* [Виртуальные хосты. Несколько доменных имен на одном сервере](https://youtu.be/ZyGfUllQ34I?si=DMHeiygLY4n2ubfa)
 -----------------------
 * [Set SSL in nginx](https://www.youtube.com/watch?v=wWHSpEPG8ec)
 * [Creating a Self-Signed SSL Certificate](https://linuxize.com/post/creating-a-self-signed-ssl-certificate/)

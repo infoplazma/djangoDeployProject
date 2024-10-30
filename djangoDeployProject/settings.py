@@ -25,7 +25,11 @@ SECRET_KEY = "django-insecure-0oxqw)m!oxaph0&x1^@+&8r9i53qcbudxp1u=az1_a!_e49+&5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# Extra settings !!!!!!!!!!!!!!!!!!!!
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://django_service", "django_service", "31.41.216.117"]  #, "*"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', )
+# For POST requests from https
+CSRF_TRUSTED_ORIGINS = ["https://localhost", "https://127.0.0.0.1", "https://31.41.216.117"]
 
 
 # Application definition
@@ -123,4 +127,4 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', )
+
